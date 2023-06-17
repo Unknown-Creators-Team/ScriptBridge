@@ -1,0 +1,2 @@
+const e=class{constructor(t){this.event=t}get block(){return this.event.block}get brokenBlockPermutation(){return this.event.brokenBlockPermutation}get dimension(){return this.event.dimension}get player(){return this.event.player}static call(t){e.callbackList.forEach(a=>{a(t)})}static subscribe(t,a){return e.callbackList.set(t,a),t}static unsubscribe(t){return e.callbackList.delete(t)}};let r=e;r.callbackList=new Map;export{r as default};
+//# sourceMappingURL=blockBreak.js.map

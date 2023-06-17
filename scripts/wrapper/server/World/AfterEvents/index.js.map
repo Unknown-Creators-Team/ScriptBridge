@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../src/wrapper/server/World/AfterEvents/index.ts"],
+  "sourcesContent": ["import BlockBreak from \"./blockBreak\";\r\n\r\nexport const blockBreak = new BlockBreak();"],
+  "mappings": "AAAA,OAAOA,MAAgB,eAEhB,aAAM,WAAa,IAAIA",
+  "names": ["BlockBreak"]
+}

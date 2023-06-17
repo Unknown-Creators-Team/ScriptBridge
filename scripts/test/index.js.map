@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/test/index.ts"],
+  "sourcesContent": ["import * as Minecraft from \"../wrapper/server/index\";\r\n\r\nconst { world, system } = Minecraft;\r\n\r\nworld.afterEvents.blockBreak.subscribe(blockBreak => {\r\n    const { block, player } = blockBreak;\r\n    player.sendMessage(block.typeId);\r\n});"],
+  "mappings": "AAAA,UAAYA,MAAe,0BAE3B,KAAM,CAAE,MAAAC,EAAO,OAAAC,CAAO,EAAIF,EAE1BC,EAAM,YAAY,WAAW,UAAUE,GAAc,CACjD,KAAM,CAAE,MAAAC,EAAO,OAAAC,CAAO,EAAIF,EAC1BE,EAAO,YAAYD,EAAM,MAAM,CACnC,CAAC",
+  "names": ["Minecraft", "world", "system", "blockBreak", "block", "player"]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "scriptbridge",
+  "version": "1.0.0",
+  "description": "Wrapper of ScriptAPI",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "esbuild": "^0.15.9",
+    "fs-extra": "^11.1.0",
+    "glob": "^9.2.1"
+  }
+}
