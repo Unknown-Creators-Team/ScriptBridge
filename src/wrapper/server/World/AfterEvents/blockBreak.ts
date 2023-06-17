@@ -34,7 +34,7 @@ export default class NewBlockBreak {
         return this.event.player;
     }
     get location(): Minecraft.Vector3 {
-        return this.event.block
+        return this.block.location;
     }
 // // // // // // // // // // // // // // // 
 
