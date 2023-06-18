@@ -1,2 +1,88 @@
-import{NewEntity as r}from"../Entity/index";export default class n extends r{constructor(e){super(e);this.player=e}getName(){return this.player.name}getNameTag(){return this.player.nameTag}setNameTag(e){this.player.nameTag=e}kick(e){this.player.runCommand(`kick ${JSON.stringify(this.getName())} ${JSON.stringify(e)}`)}getSelectedSlot(){return this.player.selectedSlot}setSelectedSlot(e){this.player.selectedSlot=e}getTotalXpNeededForNextLevel(){return this.player.totalXpNeededForNextLevel}getXpEarnedAtCurrentLevel(){return this.player.xpEarnedAtCurrentLevel}addExperience(e){return this.player.addExperience(e)}addLevels(e){return this.player.addLevels(e)}getItemCooldown(e){return this.player.getItemCooldown(e)}getSpawnPoint(){return this.player.getSpawnPoint()}getTotalXp(){return this.player.getTotalXp()}isOperator(){return this.player.isOp()}setOperator(e){this.player.setOp(e)}playSound(e,t){this.player.playSound(e,t)}postClientMessage(e,t){this.player.postClientMessage(e,t)}resetLevel(){this.player.resetLevel()}sendMessage(e){this.player.sendMessage(e)}setSpawnPoint(e){this.player.setSpawnPoint(e)}startItemCooldown(e,t){this.player.startItemCooldown(e,t)}}
+import NewEntity from "../Entity/index";
+import { world } from "../index";
+export default class NewPlayer extends NewEntity {
+  constructor(copyFrom) {
+    super(copyFrom);
+    this.player = copyFrom;
+  }
+  get name() {
+    return this.player.name;
+  }
+  get nameTag() {
+    return this.player.nameTag;
+  }
+  setNameTag(nameTag) {
+    this.player.nameTag = nameTag;
+  }
+  kick(reason) {
+    return this.player.runCommand(`kick "${this.player.name}" ${reason}`) ? true : false;
+  }
+  kickAsync(reason) {
+    return new Promise((resolve, reject) => {
+      this.player.runCommandAsync(`kick "${this.player.name}" ${reason}`).then(() => resolve(true)).catch((e) => reject(e));
+    });
+  }
+  getInventory() {
+    return this.getComponent("inventory");
+  }
+  getSelectedSlot() {
+    return this.player.selectedSlot;
+  }
+  setSelectedSlot(slot) {
+    this.player.selectedSlot = slot;
+  }
+  getTotalXpNeededForNextLevel() {
+    return this.player.totalXpNeededForNextLevel;
+  }
+  getXpEarnedAtCurrentLevel() {
+    return this.player.xpEarnedAtCurrentLevel;
+  }
+  addExperience(amount) {
+    return this.player.addExperience(amount);
+  }
+  addLevels(amount) {
+    return this.player.addLevels(amount);
+  }
+  getItemCooldown(itemCategory) {
+    return this.player.getItemCooldown(itemCategory);
+  }
+  getSpawnPoint() {
+    return this.player.getSpawnPosition();
+  }
+  setSpawnPoint(spawnPoint, dimensionId) {
+    const dimension = world.getDimension(dimensionId);
+    this.player.setSpawn(spawnPoint, dimension);
+  }
+  getTotalXp() {
+    return this.player.getTotalXp();
+  }
+  isOperator() {
+    return this.player.isOp();
+  }
+  setOperator(status) {
+    this.player.setOp(status);
+  }
+  playSound(soundID, soundOptions) {
+    this.player.playSound(soundID, soundOptions);
+  }
+  postClientMessage(id, value) {
+    this.player.postClientMessage(id, value);
+  }
+  resetLevel() {
+    this.player.resetLevel();
+  }
+  sendMessage(message) {
+    this.player.sendMessage(message);
+  }
+  startItemCooldown(itemCategory, tickDuration) {
+    this.player.startItemCooldown(itemCategory, tickDuration);
+  }
+  static convertToNewPlayer(copyFrom) {
+    if (copyFrom instanceof Array) {
+      return copyFrom.map((v) => new NewPlayer(v));
+    } else {
+      return new NewPlayer(copyFrom);
+    }
+  }
+}
 //# sourceMappingURL=index.js.map

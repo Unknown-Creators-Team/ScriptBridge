@@ -1,11 +1,13 @@
 import * as Minecraft from "@minecraft/server";
-import { NewEntity } from "../Entity/index";
+import NewEntity from "../Entity/index";
+import { world } from "../index";
+import { DimensionSelector } from "../../Types/index";
 
 export default class NewPlayer extends NewEntity {
     private player: Minecraft.Player;
     
     constructor(copyFrom: Minecraft.Player) {
-        super(copyFrom);
+        super(copyFrom)
         this.player = copyFrom;
     }
 
@@ -31,6 +33,10 @@ export default class NewPlayer extends NewEntity {
             .then(() => resolve(true))
             .catch((e) => reject(e));
         })
+    }
+
+    getInventory() {
+        return this.getComponent("inventory");
     }
 
     getSelectedSlot(): number {
@@ -62,7 +68,13 @@ export default class NewPlayer extends NewEntity {
     }
 
     getSpawnPoint(): Minecraft.Vector3 | undefined {
-        return this.player.getSpawnPointPosition();
+        return this.player.getSpawnPosition();
+    }
+
+    setSpawnPoint(spawnPoint: Minecraft.Vector3, dimensionId: DimensionSelector): void {
+        const dimension = world.getDimension(dimensionId);
+
+        this.player.setSpawn(spawnPoint, dimension);
     }
 
     getTotalXp(): number {
@@ -77,7 +89,7 @@ export default class NewPlayer extends NewEntity {
         this.player.setOp(status);
     }
 
-    playSound(soundID: string, soundOptions?: Minecraft.PlaySoundOptions): void {
+    playSound(soundID: string, soundOptions?: Minecraft.PlayerSoundOptions): void {
         this.player.playSound(soundID, soundOptions);
     }
 
@@ -89,23 +101,20 @@ export default class NewPlayer extends NewEntity {
         this.player.resetLevel();
     }
 
-    sendMessage(message: (RawMessage | string)[] | RawMessage | string): void {
+    sendMessage(message: (Minecraft.RawMessage | string)[] | Minecraft.RawMessage | string): void {
         this.player.sendMessage(message);
-    }
-
-    setSpawnPoint(spawnPoint?: DimensionLocation): void {
-        this.player.setSpawnPosition(spawnPoint);
     }
 
     startItemCooldown(itemCategory: string, tickDuration: number): void {
         this.player.startItemCooldown(itemCategory, tickDuration);
     }
 
-    static convertToNewPlayer(copyFrom: Minecraft.Player | Minecraft.Player[]) {
-        if(Array.isArray(copyFrom)) {
-            return copyFrom.map((v) => new NewPlayer(v));
+    // copyFromが配列の場合、配列で返す。配列ではない場合、単体で返す。
+    static convertToNewPlayer<T extends Minecraft.Player | Array<Minecraft.Player>>(copyFrom: T): T extends Array<Minecraft.Player> ? NewPlayer[] : NewPlayer {
+        if(copyFrom instanceof Array) {
+            return copyFrom.map((v) => new NewPlayer(v)) as any;
         } else {
-            return new NewPlayer(copyFrom);
+            return new NewPlayer(copyFrom) as any;
         }
     }
 }

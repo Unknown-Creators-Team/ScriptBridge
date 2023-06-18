@@ -1,4 +1,5 @@
 import * as Minecraft from "@minecraft/server";
+import NewPlayer from "../../Player/index";
 
 type Callback = (event: NewBlockBreak) => void;
 
@@ -14,8 +15,8 @@ export default class NewBlockBreak {
         return this.event.block;
     }
 
-    get player(): Minecraft.Player {
-        return this.event.player;
+    get player(): NewPlayer {
+        return NewPlayer.convertToNewPlayer(this.event.player);
     }
 
     get dimension(): Minecraft.Dimension {
@@ -26,21 +27,15 @@ export default class NewBlockBreak {
         return this.event.brokenBlockPermutation;
     }
 
-    get dimension(): Minecraft.Dimension {
-        return this.event.dimension;
+    getHandItem(): Minecraft.ItemStack {
+        return this.player.getInventory().container.getItem(this.player.getSelectedSlot());
     }
 
-    get player(): Minecraft.Player {
-        return this.event.player;
-    }
-    get location(): Minecraft.Vector3 {
-        return this.block.location;
-    }
-// // // // // // // // // // // // // // // 
+    // // // // // // // // // // // // // // // 
 
-    static call(event: NewBlockBreak) {
+    static call(event: Minecraft.BlockBreakAfterEvent) {
         NewBlockBreak.callbackList.forEach((callback) => {
-            callback(event);
+            callback(new this(event));
         });
     }
 

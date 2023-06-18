@@ -1,10 +1,10 @@
 import * as Minecraft from "@minecraft/server";
-import { EntityComponents } from "../../Types/EntityComponents";
+import EntityComponents from "../../Types/EntityComponents";
 
 type DynamicPropertyReturns = boolean | number | string | undefined;
 type DynamicPropertySetter = boolean | number | string;
 
-export class NewEntity {
+export default class NewEntity {
     private entity: Minecraft.Entity;
 
     constructor(copyFrom: Minecraft.Entity) {

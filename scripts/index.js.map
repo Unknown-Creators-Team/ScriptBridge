@@ -2,6 +2,6 @@
   "version": 3,
   "sources": ["../src/index.ts"],
   "sourcesContent": ["import \"./test/index\";"],
-  "mappings": "AAAA,MAAO",
+  "mappings": "AAAA,OAAO;",
   "names": []
 }

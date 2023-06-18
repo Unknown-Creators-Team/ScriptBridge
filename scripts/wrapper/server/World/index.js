@@ -1,2 +1,68 @@
-import*as i from"./AfterEvents/index";import{NewPlayer as n}from"../Player/index";export default class s{constructor(t){this.world=t}get afterEvents(){return Object.assign(this.world.afterEvents,i)}get beforeEvents(){return this.world.beforeEvents}broadcastClientMessage(t,e){this.world.broadcastClientMessage(t,e)}getAbsoluteTime(){return this.world.getAbsoluteTime()}getAllPlayers(){return this.world.getAllPlayers().map(t=>new n(t))}getDefaultSpawnPosition(){return this.world.getDefaultSpawnPosition()}getDimension(t){return this.world.getDimension(t)}getDynamicProperty(t){return this.world.getDynamicProperty(t)}getEntity(t){return this.world.getEntity(t)}getPlayers(t){return this.world.getPlayers(t)}getTime(){return this.world.getTime()}playMusic(t,e){this.world.playMusic(t,e)}playSound(t,e,r){this.world.playSound(t,e,r)}queueMusic(t,e){this.world.queueMusic(t,e)}removeDynamicProperty(t){return this.world.removeDynamicProperty(t)}sendMessage(t){this.world.sendMessage(t)}setDefaultSpawnPosition(t){this.world.setDefaultSpawn(t)}setDynamicProperty(t,e){this.world.setDynamicProperty(t,e)}setTime(t){this.world.setTime(t)}stopMusic(){this.world.stopMusic()}}
+import * as AfterEvents from "./AfterEvents/index";
+import NewPlayer from "../Player/index";
+export default class World {
+  constructor(copyFrom) {
+    this.world = copyFrom;
+  }
+  get afterEvents() {
+    return AfterEvents;
+  }
+  get beforeEvents() {
+    return this.world.beforeEvents;
+  }
+  broadcastClientMessage(id, value) {
+    this.world.broadcastClientMessage(id, value);
+  }
+  getAbsoluteTime() {
+    return this.world.getAbsoluteTime();
+  }
+  getAllPlayers() {
+    return NewPlayer.convertToNewPlayer(this.world.getAllPlayers());
+  }
+  getDefaultSpawnPosition() {
+    return this.world.getDefaultSpawnPosition();
+  }
+  getDimension(dimensionId) {
+    return this.world.getDimension(dimensionId);
+  }
+  getDynamicProperty(identifier) {
+    return this.world.getDynamicProperty(identifier);
+  }
+  getEntity(id) {
+    return this.world.getEntity(id);
+  }
+  getPlayers(options) {
+    return NewPlayer.convertToNewPlayer(this.world.getPlayers(options));
+  }
+  getTime() {
+    return this.world.getTime();
+  }
+  playMusic(trackID, musicOptions) {
+    this.world.playMusic(trackID, musicOptions);
+  }
+  playSound(soundID, location, soundOptions) {
+    this.world.playSound(soundID, location, soundOptions);
+  }
+  queueMusic(trackID, musicOptions) {
+    this.world.queueMusic(trackID, musicOptions);
+  }
+  removeDynamicProperty(identifier) {
+    return this.world.removeDynamicProperty(identifier);
+  }
+  sendMessage(message) {
+    this.world.sendMessage(message);
+  }
+  setDefaultSpawnPosition(position) {
+    this.world.setDefaultSpawn(position);
+  }
+  setDynamicProperty(identifier, value) {
+    this.world.setDynamicProperty(identifier, value);
+  }
+  setTime(timeOfDay) {
+    this.world.setTime(timeOfDay);
+  }
+  stopMusic() {
+    this.world.stopMusic();
+  }
+}
 //# sourceMappingURL=index.js.map

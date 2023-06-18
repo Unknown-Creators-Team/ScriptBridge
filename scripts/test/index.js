@@ -1,2 +1,7 @@
-import*as t from"../wrapper/server/index";const{world:o,system:a}=t;o.afterEvents.blockBreak.subscribe(e=>{const{block:s,player:r}=e;r.sendMessage(s.typeId)});
+import * as Minecraft from "../wrapper/server/index";
+const { world } = Minecraft;
+world.afterEvents.blockBreak.subscribe("test", (blockBreak) => {
+  const { block, player, brokenBlockPermutation } = blockBreak;
+  player.sendMessage(brokenBlockPermutation.type.id + ` | ${blockBreak.getHandItem().typeId}`);
+});
 //# sourceMappingURL=index.js.map

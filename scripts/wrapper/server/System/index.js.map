@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../../../src/wrapper/server/System/index.ts"],
-  "sourcesContent": ["import * as Minecraft from \"@minecraft/server\";\r\n\r\nexport default class NewSystem extends Minecraft.System {\r\n    constructor() {\r\n        super();\r\n    }\r\n}"],
-  "mappings": "AAAA,UAAYA,MAAe,oBAE3B,qBAAqBC,UAAkBD,EAAU,MAAO,CACpD,aAAc,CACV,MAAM,CACV,CACJ",
-  "names": ["Minecraft", "NewSystem"]
+  "sourcesContent": ["import * as Minecraft from \"@minecraft/server\";\r\n\r\nexport default class NewSystem {\r\n    constructor() {\r\n    }\r\n}"],
+  "mappings": "AAEA,qBAAqB,UAAU;AAAA,EAC3B,cAAc;AAAA,EACd;AACJ;",
+  "names": []
 }

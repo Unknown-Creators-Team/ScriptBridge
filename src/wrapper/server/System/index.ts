@@ -1,7 +1,6 @@
 import * as Minecraft from "@minecraft/server";
 
-export default class NewSystem extends Minecraft.System {
+export default class NewSystem {
     constructor() {
-        super();
     }
 }

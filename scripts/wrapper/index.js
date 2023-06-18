@@ -1,2 +1,3 @@
-import*as r from"./server/index";export const NewServer=r;
+import * as Server from "./server/index";
+export const NewServer = Server;
 //# sourceMappingURL=index.js.map

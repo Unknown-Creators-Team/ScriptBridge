@@ -2,6 +2,6 @@
   "version": 3,
   "sources": ["../../../src/wrapper/server-ui/index.ts"],
   "sourcesContent": ["export default\r\n{\r\n    \r\n}"],
-  "mappings": "AAAA,cACA,CAEA",
+  "mappings": "AAAA,eACA,CAEA;",
   "names": []
 }

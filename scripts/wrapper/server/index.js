@@ -1,2 +1,8 @@
-import o from"./Player/index";import r from"./World/index";import e from"./System/index";export const Player=o,world=new r,system=new e;
+import * as Minecraft from "@minecraft/server";
+import NewPlayer from "./Player/index";
+import NewWorld from "./World/index";
+import NewSystem from "./System/index";
+export const Player = NewPlayer;
+export const world = new NewWorld(Minecraft.world);
+export const system = new NewSystem();
 //# sourceMappingURL=index.js.map

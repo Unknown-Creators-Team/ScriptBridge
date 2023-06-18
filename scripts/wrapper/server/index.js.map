@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../../src/wrapper/server/index.ts"],
-  "sourcesContent": ["import NewPlayer from \"./Player/index\";\r\nimport NewWorld from \"./World/index\";\r\nimport NewSystem from \"./System/index\"\r\n\r\nexport const Player = NewPlayer;\r\nexport const world = new NewWorld();\r\nexport const system = new NewSystem();"],
-  "mappings": "AAAA,OAAOA,MAAe,iBACtB,OAAOC,MAAc,gBACrB,OAAOC,MAAe,iBAEf,aAAM,OAASF,EACT,MAAQ,IAAIC,EACZ,OAAS,IAAIC",
-  "names": ["NewPlayer", "NewWorld", "NewSystem"]
+  "sourcesContent": ["import * as Minecraft from \"@minecraft/server\";\r\n\r\nimport NewPlayer from \"./Player/index\";\r\nimport NewWorld from \"./World/index\";\r\nimport NewSystem from \"./System/index\"\r\n\r\nexport const Player = NewPlayer;\r\nexport const world = new NewWorld(Minecraft.world);\r\nexport const system = new NewSystem();"],
+  "mappings": "AAAA,YAAY,eAAe;AAE3B,OAAO,eAAe;AACtB,OAAO,cAAc;AACrB,OAAO,eAAe;AAEf,aAAM,SAAS;AACf,aAAM,QAAQ,IAAI,SAAS,UAAU,KAAK;AAC1C,aAAM,SAAS,IAAI,UAAU;",
+  "names": []
 }

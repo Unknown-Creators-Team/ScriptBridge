@@ -1,6 +1,6 @@
 import * as Minecraft from "@minecraft/server"
 
-export interface ItemComponents {
+export default interface ItemComponents {
     "minecraft:cooldown": Minecraft.ItemCooldownComponent,
     "cooldown": Minecraft.ItemCooldownComponent,
     "minecraft:durability": Minecraft.ItemDurabilityComponent,

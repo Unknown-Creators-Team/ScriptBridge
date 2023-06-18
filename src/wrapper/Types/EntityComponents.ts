@@ -1,6 +1,6 @@
 import * as Minecraft from "@minecraft/server";
 
-export interface EntityComponents {
+export default interface EntityComponents {
     "minecraft:addrider": Minecraft.EntityAddRiderComponent,
     "addrider": Minecraft.EntityAddRiderComponent,
     "minecraft:ageable": Minecraft.EntityAgeableComponent,

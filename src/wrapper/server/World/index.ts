@@ -1,14 +1,8 @@
 import * as Minecraft from "@minecraft/server";
 import * as AfterEvents from "./AfterEvents/index";
-import { NewPlayer } from "../Player/index";
+import NewPlayer from "../Player/index";
 
-// export default class NewWorld extends Minecraft.World {
-//     constructor() {
-//         super();
-//     }
-// }
-
-export default class World implements Minecraft.World {
+export default class World {
     private world: Minecraft.World;
 
     constructor(copyFrom: Minecraft.World) {
@@ -16,7 +10,7 @@ export default class World implements Minecraft.World {
     }
 
     get afterEvents() {
-        return Object.assign(this.world.afterEvents, AfterEvents);
+        return AfterEvents;
     }
 
     get beforeEvents() {

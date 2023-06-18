@@ -1,6 +1,6 @@
 import * as Minecraft from "@minecraft/server";
 
-export interface BlockComponents {
+export default interface BlockComponents {
     "minecraft:piston": Minecraft.BlockPistonComponent,
     "piston": Minecraft.BlockPistonComponent,
     "minecraft:recordPlayer": Minecraft.BlockRecordPlayerComponent,

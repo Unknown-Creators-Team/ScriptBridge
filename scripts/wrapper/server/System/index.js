@@ -1,2 +1,5 @@
-import*as e from"@minecraft/server";export default class t extends e.System{constructor(){super()}}
+export default class NewSystem {
+  constructor() {
+  }
+}
 //# sourceMappingURL=index.js.map

@@ -1,2 +1,123 @@
-export class NewEntity{constructor(t){this.entity=t}getDimension(){return this.entity.dimension}getId(){return this.entity.id}getTypeId(){return this.entity.typeId}isEntity(){return this instanceof NewEntity}addEffect(t,e,n){return this.entity.addEffect(t,e,n)}addTag(t){return this.entity.addTag(t)}addTags(t){return t.map(e=>this.entity.addTag(e))}removeTag(t){return this.entity.removeTag(t)}removeTags(t){return t.map(e=>this.entity.removeTag(e))}getTags(){return this.entity.getTags()}applyDamage(t,e){return this.applyDamage(t,e)}applyImpulse(t){this.applyImpulse(t)}applyKnockback(t,e,n,i){this.applyKnockback(t,e,n,i)}clearVelocity(){this.clearVelocity()}extinguishFire(t){return this.entity.extinguishFire(t)}getBlockFromViewDirection(t){return this.entity.getBlockFromViewDirection(t)}getComponent(t){return this.entity.getComponent(t)}getComponents(){return this.entity.getComponents()}getDynamicProperty(t){return this.entity.getDynamicProperty(t)}getEffect(t){return this.entity.getEffect(t)}getEffects(){return this.entity.getEffects()}getEntitiesFromViewDirection(t){return this.entity.getEntitiesFromViewDirection(t)}getHeadLocation(){return this.entity.getHeadLocation()}getRotation(){return this.entity.getRotation()}getVelocity(){return this.entity.getVelocity()}getViewDirection(){return this.entity.getViewDirection()}hasComponent(t){return this.entity.hasComponent(t)}hasTag(t){return this.entity.hasTag(t)}kill(){return this.entity.kill()}playAnimation(t,e){return this.entity.playAnimation(t,e)}removeDynamicProperty(t){return this.entity.removeDynamicProperty(t)}removeEffect(t){return this.entity.removeEffect(t)}runCommand(t){return this.entity.runCommand(t)}runCommandAsync(t){return this.entity.runCommandAsync(t)}setDynamicProperty(t,e){return this.entity.setDynamicProperty(t,e)}setOnFire(t,e){return this.entity.setOnFire(t,e)}setRotation(t){this.entity.setRotation(t)}teleport(t,e){this.entity.teleport(t,e)}tryTeleport(t,e){return this.entity.tryTeleport(t,e)}}
+export default class NewEntity {
+  constructor(copyFrom) {
+    this.entity = copyFrom;
+  }
+  getDimension() {
+    return this.entity.dimension;
+  }
+  getId() {
+    return this.entity.id;
+  }
+  getTypeId() {
+    return this.entity.typeId;
+  }
+  isEntity() {
+    return this instanceof NewEntity;
+  }
+  addEffect(effectType, duration, options) {
+    return this.entity.addEffect(effectType, duration, options);
+  }
+  addTag(tag) {
+    return this.entity.addTag(tag);
+  }
+  addTags(tags) {
+    return tags.map((tag) => this.entity.addTag(tag));
+  }
+  removeTag(tag) {
+    return this.entity.removeTag(tag);
+  }
+  removeTags(tags) {
+    return tags.map((tag) => this.entity.removeTag(tag));
+  }
+  getTags() {
+    return this.entity.getTags();
+  }
+  applyDamage(amount, options) {
+    return this.applyDamage(amount, options);
+  }
+  applyImpulse(vector) {
+    this.applyImpulse(vector);
+  }
+  applyKnockback(directionX, directionZ, horizontalStrength, verticalStrength) {
+    this.applyKnockback(directionX, directionZ, horizontalStrength, verticalStrength);
+  }
+  clearVelocity() {
+    this.clearVelocity();
+  }
+  extinguishFire(useEffects) {
+    return this.entity.extinguishFire(useEffects);
+  }
+  getBlockFromViewDirection(options) {
+    return this.entity.getBlockFromViewDirection(options);
+  }
+  getComponent(componentId) {
+    return this.entity.getComponent(componentId);
+  }
+  getComponents() {
+    return this.entity.getComponents();
+  }
+  getDynamicProperty(identifier) {
+    return this.entity.getDynamicProperty(identifier);
+  }
+  getEffect(effectType) {
+    return this.entity.getEffect(effectType);
+  }
+  getEffects() {
+    return this.entity.getEffects();
+  }
+  getEntitiesFromViewDirection(options) {
+    return this.entity.getEntitiesFromViewDirection(options);
+  }
+  getHeadLocation() {
+    return this.entity.getHeadLocation();
+  }
+  getRotation() {
+    return this.entity.getRotation();
+  }
+  getVelocity() {
+    return this.entity.getVelocity();
+  }
+  getViewDirection() {
+    return this.entity.getViewDirection();
+  }
+  hasComponent(componentId) {
+    return this.entity.hasComponent(componentId);
+  }
+  hasTag(tag) {
+    return this.entity.hasTag(tag);
+  }
+  kill() {
+    return this.entity.kill();
+  }
+  playAnimation(animationName, options) {
+    return this.entity.playAnimation(animationName, options);
+  }
+  removeDynamicProperty(identifier) {
+    return this.entity.removeDynamicProperty(identifier);
+  }
+  removeEffect(effectType) {
+    return this.entity.removeEffect(effectType);
+  }
+  runCommand(commandString) {
+    return this.entity.runCommand(commandString);
+  }
+  runCommandAsync(commandString) {
+    return this.entity.runCommandAsync(commandString);
+  }
+  setDynamicProperty(identifier, value) {
+    return this.entity.setDynamicProperty(identifier, value);
+  }
+  setOnFire(seconds, useEffects) {
+    return this.entity.setOnFire(seconds, useEffects);
+  }
+  setRotation(rotation) {
+    this.entity.setRotation(rotation);
+  }
+  teleport(location, teleportOptions) {
+    this.entity.teleport(location, teleportOptions);
+  }
+  tryTeleport(location, teleportOptions) {
+    return this.entity.tryTeleport(location, teleportOptions);
+  }
+}
 //# sourceMappingURL=index.js.map

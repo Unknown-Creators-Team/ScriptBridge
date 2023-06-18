@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../src/test/index.ts"],
-  "sourcesContent": ["import * as Minecraft from \"../wrapper/server/index\";\r\n\r\nconst { world, system } = Minecraft;\r\n\r\nworld.afterEvents.blockBreak.subscribe(blockBreak => {\r\n    const { block, player } = blockBreak;\r\n    player.sendMessage(block.typeId);\r\n});"],
-  "mappings": "AAAA,UAAYA,MAAe,0BAE3B,KAAM,CAAE,MAAAC,EAAO,OAAAC,CAAO,EAAIF,EAE1BC,EAAM,YAAY,WAAW,UAAUE,GAAc,CACjD,KAAM,CAAE,MAAAC,EAAO,OAAAC,CAAO,EAAIF,EAC1BE,EAAO,YAAYD,EAAM,MAAM,CACnC,CAAC",
-  "names": ["Minecraft", "world", "system", "blockBreak", "block", "player"]
+  "sourcesContent": ["import * as Minecraft from \"../wrapper/server/index\";\r\n\r\nconst { world } = Minecraft;\r\n\r\nworld.afterEvents.blockBreak.subscribe(\"test\", blockBreak => {\r\n    const { block, player, brokenBlockPermutation } = blockBreak;\r\n    player.sendMessage(brokenBlockPermutation.type.id + ` | ${blockBreak.getHandItem().typeId}`);\r\n});"],
+  "mappings": "AAAA,YAAY,eAAe;AAE3B,MAAM,EAAE,MAAM,IAAI;AAElB,MAAM,YAAY,WAAW,UAAU,QAAQ,gBAAc;AACzD,QAAM,EAAE,OAAO,QAAQ,uBAAuB,IAAI;AAClD,SAAO,YAAY,uBAAuB,KAAK,KAAK,MAAM,WAAW,YAAY,EAAE,QAAQ;AAC/F,CAAC;",
+  "names": []
 }
