@@ -1,7 +1,8 @@
-import * as Minecraft from "../wrapper/server/index";
-const { world } = Minecraft;
-world.afterEvents.blockBreak.subscribe("test", (blockBreak) => {
-  const { block, player, brokenBlockPermutation } = blockBreak;
-  player.sendMessage(brokenBlockPermutation.type.id + ` | ${blockBreak.getHandItem().typeId}`);
+import * as Minecraft from "@minecraft/server";
+import "../wrapper/index"
+
+const { world, system } = Minecraft;
+
+system.runInterval(() => {
+    world.getPlayers().forEach((p) => p.onScreenDisplay.setActionBar(`TPS: ${system.getTPS()} | ${system.getDeltaTime().toFixed(2)}`));
 });
-//# sourceMappingURL=index.js.map

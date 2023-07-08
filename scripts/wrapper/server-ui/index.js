@@ -1,2 +1,4 @@
-export default {};
-//# sourceMappingURL=index.js.map
+export default
+{
+    
+}

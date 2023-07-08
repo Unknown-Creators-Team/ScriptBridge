@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../../src/wrapper/server/World/AfterEvents/index.ts"],
-  "sourcesContent": ["import * as Minecraft from \"@minecraft/server\";\r\nimport BlockBreak from \"./blockBreak\";\r\n\r\nexport const blockBreak = BlockBreak;\r\n\r\n//  Handler  \\\\\r\n\r\nconst { world: { afterEvents, beforeEvents } } = Minecraft;\r\n\r\nafterEvents.blockBreak.subscribe((ev) => {\r\n    blockBreak.call(ev);\r\n});"],
-  "mappings": "AAAA,YAAY,eAAe;AAC3B,OAAO,gBAAgB;AAEhB,aAAM,aAAa;AAI1B,MAAM,EAAE,OAAO,EAAE,aAAa,aAAa,EAAE,IAAI;AAEjD,YAAY,WAAW,UAAU,CAAC,OAAO;AACrC,aAAW,KAAK,EAAE;AACtB,CAAC;",
-  "names": []
-}

@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../src/wrapper/index.ts"],
-  "sourcesContent": ["import * as Server from \"./server/index\";\r\nimport * as ServerUI from \"./server-ui/index\";\r\n\r\nexport const NewServer = Server;"],
-  "mappings": "AAAA,YAAY,YAAY;AAGjB,aAAM,YAAY;",
-  "names": []
-}

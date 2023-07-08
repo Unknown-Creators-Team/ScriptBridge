@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../src/wrapper/server-ui/index.ts"],
-  "sourcesContent": ["export default\r\n{\r\n    \r\n}"],
-  "mappings": "AAAA,eACA,CAEA;",
-  "names": []
-}

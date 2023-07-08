@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../src/wrapper/server/System/index.ts"],
-  "sourcesContent": ["import * as Minecraft from \"@minecraft/server\";\r\n\r\nexport default class NewSystem {\r\n    constructor() {\r\n    }\r\n}"],
-  "mappings": "AAEA,qBAAqB,UAAU;AAAA,EAC3B,cAAc;AAAA,EACd;AACJ;",
-  "names": []
-}
