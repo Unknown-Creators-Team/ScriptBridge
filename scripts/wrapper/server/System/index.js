@@ -14,7 +14,6 @@ Minecraft.System.prototype.getDeltaTime = function() {
     return DeltaTime;
 }
 
-
 const calculateAverage = (array) => array.reduce((a, b) => a + b) / array.length;
 
 system.runInterval(() => {

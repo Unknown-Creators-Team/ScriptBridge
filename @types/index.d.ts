@@ -1,4 +1,4 @@
-import * as Minecraft from "@minecraft/server";
+import * as MC from "@minecraft/server";
 
 declare module "@minecraft/server" {
     interface Player {

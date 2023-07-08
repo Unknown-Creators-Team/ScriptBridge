@@ -9,5 +9,3 @@ Minecraft.Player.prototype.addTags = function(tags) {
 Minecraft.Player.prototype.removeTags = function(tags) {
     tags.forEach((tag) => this.removeTag(tag));
 }
-
-// これTSである必要あるんかなー()
